@@ -26,3 +26,18 @@
     compile 'org.igniterealtime.smack:smack-extensions:4.1.1'
     compile 'org.igniterealtime.smack:smack-android-extensions:4.1.1'
   ```
+  <br><br>
+  Also include Google gson library.
+  ``` java
+      compile 'com.google.code.gson:gson:1.7.2'
+  ```
+  
+  Lets Define Server details in ### Config.java ###
+  ``` java
+  public class Config {
+    public static final String HOST="Your Server IP address  on which your Openfire Server is installed";
+    public static final int PORT=5222; // This is default PORT address of Openfire Server.
+  }
+  ```
+
+  
