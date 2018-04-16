@@ -183,7 +183,7 @@
         connectionThread.execute();
   ```
   <br><br>
-  After connecting with server. Lets register our user from android app. If user is already register its just overwrite current defails   with new one.
+  After connecting with server. Lets register our user from android app. If user is already register its just overwrite current details   with new one.
   
   ``` java
         AccountManager account = AccountManager.getInstance(connection);
