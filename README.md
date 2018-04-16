@@ -1,4 +1,4 @@
-# XMPP-Chat-using-Openfire-In-Web-And-Android
+# XMPP Chat using Openfire In Web And Android
  
  For real time messaging or Push Notification we need a server that manage all of that. The Openfire is the solution for it. 
  
