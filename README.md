@@ -71,10 +71,7 @@
         public void connected(final XMPPConnection connection) {
 
             Log.d("xmpp", "Connected!");
-       
-            if (!connection.isAuthenticated()) {
-                login(); //
-            }
+        
         }
 
         @Override
