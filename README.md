@@ -61,7 +61,7 @@
         pingManager.registerPingFailedListener(this);
 
   ```
-  <br> After initializing connection . Now its time toconnect with our XMPP Server(Openfire). Don't try to run connection with XMPP server in UI thread. It should be implemented only in AsyncTask.
+  <br> After initializing connection . Now its time to connect with our XMPP Server(Openfire). Don't try to run connecting with XMPP server in UI thread. It should be implemented only in AsyncTask.
   
   ``` java
   
