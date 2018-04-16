@@ -245,7 +245,7 @@
    Chat mychat;
    String to_username=""; // This is the username of your friend
    MessageListener messageListener = new MessageListener(context);
-   mychat = ChatManager.getInstanceFor(connection).createChat( to_username "@"+serverAddress,messageListener);
+   mychat = ChatManager.getInstanceFor(connection).createChat( to_username "@"+Config.HOST,messageListener);
    
          Message message = new Message();
          message.setBody("Your Message");
