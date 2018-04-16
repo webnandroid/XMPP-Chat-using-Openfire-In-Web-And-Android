@@ -16,7 +16,7 @@
   
   ## Android Client Implementation
   
-  We are goind to use Asmack android library to implement XMPP client in android. Lets include asmack gradle files
+  We are going to use Asmack android library to implement XMPP client in android. Lets include asmack gradle files
   
   ``` java
     compile 'org.igniterealtime.smack:smack-android:4.1.1'
