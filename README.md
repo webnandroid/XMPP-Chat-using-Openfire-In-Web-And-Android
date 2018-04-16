@@ -268,3 +268,6 @@
         }
 
   ```
+  
+  
+  XMPP provides better way to implementing the real time messaging for various application like chat, push notification. If you have    your own server then its free for you. No need to pay for third pary libraries. You can even customize XMPP server (Openfire) for your own requirements.
