@@ -9,3 +9,11 @@
   ii) https://www.digitalocean.com/community/tutorials/how-to-install-openfire-xmpp-server-on-a-debian-or-ubuntu-vps
   
   You can also install install it on AWS. You need to open port from AWS dashboard. Just add it in the rules. 
+
+
+
+  After installing openfire server lets start to implement Android Client
+  
+  
+  ## Android Client Implementation
+  
