@@ -83,6 +83,7 @@
             Log.d("xmpp", "ConnectionCLosed!");
  
         }
+        
 
         @Override
         public void connectionClosedOnError(Exception arg0) {
