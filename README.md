@@ -204,3 +204,16 @@
         }
 
   ```
+  <br><br> Now lets try to login our newly created user with XMPP server
+  
+  ``` java
+  
+   try {
+            connection.login("Your Username", "Your Password");
+            Log.i("LOGIN", "Yey! We're connected to the Xmpp server!");
+           
+        } catch (XMPPException | SmackException | IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+        }
+  ```
