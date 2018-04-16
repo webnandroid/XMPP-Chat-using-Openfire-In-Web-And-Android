@@ -182,3 +182,25 @@
         };
         connectionThread.execute();
   ```
+  <br><br>
+  After connecting with server. Lets register our user from android app. If user is already register its just overwrite current defails   with new one.
+  
+  ``` java
+        AccountManager account = AccountManager.getInstance(connection);
+        Map<String, String> details = new HashMap<String, String>();
+        details.put("name", "Your Name");
+
+        try {
+         if (accountManager.supportsAccountCreation()) {
+             accountManager.sensitiveOperationOverInsecureConnection(true);
+             account.createAccount("Your Username", "Your Password",details);
+            }
+        } catch (SmackException.NoResponseException e) {
+            e.printStackTrace();
+        } catch (XMPPException.XMPPErrorException e) {
+            e.printStackTrace();
+        } catch (NotConnectedException e) {
+            e.printStackTrace();
+        }
+
+  ```
