@@ -39,5 +39,25 @@
     public static final int PORT=5222; // This is default PORT address of Openfire Server.
   }
   ```
-
   
+  <br><br>
+  Now Intialize our android client connection with openfire server. Asmack android client provides <b><i>XMPPTCPConnection</i></b> class to implement this.
+  
+  ``` java
+  
+        XMPPTCPConnection connection;
+        XMPPTCPConnectionConfiguration.Builder config = XMPPTCPConnectionConfiguration.builder();
+        config.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
+        config.setServiceName(Config.HOST);
+        config.setHost(Config.HOST);
+        config.setPort(Config.PORT);
+        config.setDebuggerEnabled(true);
+        XMPPTCPConnection.setUseStreamManagementResumptiodDefault(true);
+        XMPPTCPConnection.setUseStreamManagementDefault(true);
+        connection = new XMPPTCPConnection(config.build());
+        XMPPConnectionListener connectionListener = new XMPPConnectionListener();
+        connection.addConnectionListener(connectionListener);
+        PingManager pingManager = PingManager.getInstanceFor(connection);
+        pingManager.registerPingFailedListener(this);
+
+  ```
