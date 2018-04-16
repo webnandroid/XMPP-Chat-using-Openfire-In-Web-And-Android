@@ -61,3 +61,49 @@
         pingManager.registerPingFailedListener(this);
 
   ```
+  <br> After initializing connection . Now its time toconnect with our XMPP Server(Openfire). Don't try to run connection with XMPP server in UI thread. It should be implemented only in AsyncTask.
+  
+  ``` java
+  
+        AsyncTask<Void, Void, Boolean> connectionThread = new AsyncTask<Void, Void, Boolean>() {
+            @Override
+            protected synchronized Boolean doInBackground(Void... arg0) {
+                if (connection.isConnected())
+                    return false;
+                  
+                Log.d("Connect() Function", "Connecting....");
+
+                try {
+                    connection.connect();
+                    DeliveryReceiptManager dm = DeliveryReceiptManager
+                            .getInstanceFor(connection);
+                    dm.setAutoReceiptMode(AutoReceiptMode.always);
+                    dm.addReceiptReceivedListener(new ReceiptReceivedListener() {
+
+                        @Override
+                        public void onReceiptReceived(final String fromid,
+                                                      final String toid, final String msgid,
+                                                      final Stanza packet) {
+
+                        }
+                    }); 
+                    
+                    
+
+                } catch (IOException e) {
+                     
+
+                    Log.e("Connection Error", "IOException: " + e.getMessage());
+                } catch (SmackException e) {
+                     
+                    Log.e("SMACKException", "SMACKException: " + e.getMessage());
+                } catch (XMPPException e) {
+                      
+                    Log.e("XMPPException",  "XMPPException: " + e.getMessage());
+
+                }
+                return true;
+            }
+        };
+        connectionThread.execute();
+  ```
