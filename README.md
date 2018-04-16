@@ -2,7 +2,7 @@
  
  For real time messaging or Push Notification we need a server that manage all of that. The Openfire is the solution for it. 
  
- To install openfire we need linux server. I am providing the links to install openifre.
+ To install openfire we need linux server. Here are the links to install openfire.
  
   i) https://linode.com/docs/applications/messaging/install-openfire-on-ubuntu-12-04-for-instant-messaging/
   
