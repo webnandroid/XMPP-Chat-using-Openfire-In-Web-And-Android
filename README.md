@@ -61,6 +61,83 @@
         pingManager.registerPingFailedListener(this);
 
   ```
+  
+ <br> 
+ Now implement XMPPConnectionListener class. It executes after connection is made with XMPP Server. It is used to check that connection is made successfully with server or not.
+ 
+ ``` java
+  public class XMPPConnectionListener implements ConnectionListener {
+        @Override
+        public void connected(final XMPPConnection connection) {
+
+            Log.d("xmpp", "Connected!");
+       
+            if (!connection.isAuthenticated()) {
+                login(); //
+            }
+        }
+
+        @Override
+        public void connectionClosed() {
+            
+            Log.d("xmpp", "ConnectionCLosed!");
+ 
+        }
+
+        @Override
+        public void connectionClosedOnError(Exception arg0) {
+           
+            Log.d("xmpp", "ConnectionClosedOn Error!");
+          
+        }
+
+        @Override
+        public void reconnectingIn(int arg0) {
+
+            Log.d("xmpp", "Reconnectingin " + arg0);
+ 
+        }
+
+        @Override
+        public void reconnectionFailed(Exception arg0) {
+            
+            Log.d("xmpp", "ReconnectionFailed!");
+            
+        }
+
+        @Override
+        public void reconnectionSuccessful() {
+           
+            Log.d("xmpp", "ReconnectionSuccessful");
+            
+        }
+
+        @Override
+        public void authenticated(XMPPConnection arg0, boolean arg1) {
+            Log.d("xmpp", "Authenticated!");
+           
+
+            ChatManager.getInstanceFor(connection).addChatListener(mChatManagerListener);
+ 
+            new Thread(new Runnable() {
+
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                }
+            }).start();
+            
+                
+                Log.e("xmpp","Conected");
+        }
+    }
+ ```
   <br> After initializing connection . Now its time to connect with our XMPP Server(Openfire). Don't try to run connecting with XMPP server in UI thread. It should be implemented only in AsyncTask.
   
   ``` java
