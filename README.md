@@ -236,8 +236,8 @@
       
     }
 
-  ```r>
-  <br><b
+  ```
+  <br><br>
   
   Now implement to send message to other user
   <br>
