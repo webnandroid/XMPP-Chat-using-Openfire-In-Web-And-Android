@@ -217,3 +217,54 @@
         } catch (Exception e) {
         }
   ```
+  <br><br> Lets focus on our main part i.e <b><i>Chat</i></b>. Lets create <b><i>MessageListener</i></b> which is called when other user send message to me. It implements the ChatMessageListener class.
+  ``` java
+   class MessageListener implements ChatMessageListener {
+
+         
+
+        @Override
+        public void processMessage(final org.jivesoftware.smack.chat.Chat chat,
+                                   final Message message) {
+            Log.i("MyXMPP_MESSAGE_LISTENER", "Xmpp message received: '"  + message);
+
+            if (message.getType() == Message.Type.chat    && message.getBody() != null) {
+               
+               Log.e("Message from "+message.getFrom(),message.getBody());
+            }
+        }
+      
+    }
+
+  ```r>
+  <br><b
+  
+  Now implement to send message to other user
+  <br>
+  ``` java
+   Chat mychat;
+   String to_username=""; // This is the username of your friend
+   MessageListener messageListener = new MessageListener(context);
+   mychat = ChatManager.getInstanceFor(connection).createChat( to_username "@"+serverAddress,=messageListener);
+   
+         Message message = new Message();
+         message.setBody("Your Message");
+         message.setType(Message.Type.chat);
+
+        try {
+            if (connection.isAuthenticated()) {
+
+                mychat.sendMessage(message);
+
+            } else {
+
+                // login first
+            }
+        } catch (NotConnectedException e) {
+            Log.e("xmpp.SendMessage()", "msg Not sent!-Not Connected!");
+
+        } catch (Exception e) {
+            Log.e("xmpp.SendMessage","msg Not sent!" + e.getMessage());
+        }
+
+  ```
