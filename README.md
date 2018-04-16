@@ -32,7 +32,7 @@
       compile 'com.google.code.gson:gson:1.7.2'
   ```
   
-  Lets Define Server details in <b> Config.java </b>
+  Lets Define Server details in <b><i> Config.java </i></b>
   ``` java
   public class Config {
     public static final String HOST="Your Server IP address  on which your Openfire Server is installed";
